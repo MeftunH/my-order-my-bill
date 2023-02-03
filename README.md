@@ -1,4 +1,24 @@
-# Getting Started
+# About of project
+An application where a customer can create orders, save and view their invoices.
+## Requirements
+1. The concepts of final, static, overload, override, constructor, inheritance, polymorphism, encapsulation, List, Set, Map should be used.
+2. You can add to the system.
+3. It is enough to work on the main method.
+4. Try to write in accordance with SOLID principles.
+5. Homework Steps
+6. Listing operations should be done using stream.
+7. Create a Maven project.
+8. Run the maven commands and add the output
+9. List all customers
+10. Able to create new customers
+11. List customers with the letter 'C' in them
+12. List the total amount of invoices for customers who signed up in June
+13. List all invoices in the system
+14. List invoices over 1500TL in the system
+15. Calculate the average of invoices over 1500TL in the system
+16. List the names of customers with invoices under 500TL in the system
+17. Write the code that lists the companies in which the average invoices for the month of June are below 750.
+
 
 ### Reference Documentation
 
