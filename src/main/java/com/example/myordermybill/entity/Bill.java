@@ -1,8 +1,11 @@
 package com.example.myordermybill.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 import java.util.Set;
@@ -28,11 +31,23 @@ public class Bill {
 
     @ManyToOne
     @JoinColumn(name="company_id", nullable=false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private Company company;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private User user;
+
+    public Bill(Long id, BigDecimal totalBill, User userId, Company company, User user) {
+        this.id=id;
+        this.totalBill=totalBill;
+        this.userId=userId;
+        this.company=company;
+        this.user=user;
+    }
 
     @Override
     public String toString() {
