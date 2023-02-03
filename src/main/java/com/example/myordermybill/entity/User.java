@@ -16,8 +16,6 @@ public class User extends Customer{
     @GeneratedValue(generator = "User")
     private Long id;
 
-
-
     @Column(name="USERNAME",length=30,unique=true,nullable = false)
     private String username;
 
