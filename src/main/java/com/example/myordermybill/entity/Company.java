@@ -22,4 +22,13 @@ public class Company {
     //One to Many to Bill
     @OneToMany(mappedBy="company")
     private Set<Bill> bills;
+
+    @Override
+    public String toString() {
+        return "Company{"+
+                "id="+id+
+                ", name='"+name+'\''+
+                ", bills="+bills+
+                '}';
+    }
 }

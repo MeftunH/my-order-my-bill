@@ -24,4 +24,14 @@ public class User {
 
     @OneToMany(mappedBy="user")
     private Set<Bill> bills;
+
+    @Override
+    public String toString() {
+        return "User{"+
+                "id="+id+
+                ", NAME='"+NAME+'\''+
+                ", username='"+username+'\''+
+                ", bills="+bills+
+                '}';
+    }
 }

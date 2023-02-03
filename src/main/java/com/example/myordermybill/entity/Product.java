@@ -25,4 +25,13 @@ public class Product {
     @ManyToMany
     Set<Bill> bills;
 
+    @Override
+    public String toString() {
+        return "Product{"+
+                "id="+id+
+                ", name='"+name+'\''+
+                ", price="+price+
+                ", bills="+bills+
+                '}';
+    }
 }

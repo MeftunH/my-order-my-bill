@@ -34,5 +34,14 @@ public class Bill {
     @JoinColumn(name="user_id", nullable=false)
     private User user;
 
-
+    @Override
+    public String toString() {
+        return "Bill{"+
+                "id="+id+
+                ", totalBill="+totalBill+
+                ", userId="+userId+
+                ", company="+company+
+                ", user="+user+
+                '}';
+    }
 }
