@@ -7,10 +7,16 @@ import lombok.Setter;
 import java.util.Set;
 
 @Entity
-@Table(name="USER")
+@Table(name="USERS")
 @Getter
 @Setter
-public class User extends Customer{
+public class User{
+    public User(String name, String username) {
+        this.username=username;
+        this.name = name;
+    }
+    @Column(name="NAME",length=30,unique=true,nullable = false)
+    private String name;
     @Id
     @SequenceGenerator(name ="User" ,sequenceName = "USER_ID_SEQ")
     @GeneratedValue(generator = "User")
