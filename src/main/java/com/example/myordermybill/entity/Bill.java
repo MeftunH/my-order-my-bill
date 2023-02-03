@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Table(name="bill")
@@ -15,6 +16,9 @@ public class Bill {
     @SequenceGenerator(name ="BILL" ,sequenceName = "BILL_ID_SEQ")
     @GeneratedValue(generator = "BILL")
     private Long id;
+
+    @Column(name="TOTAL_BILL",precision = 15, scale=2,nullable = false)
+    private BigDecimal totalBill;
 
     //Many to One to User
     @ManyToOne
