@@ -10,14 +10,13 @@ import java.util.Set;
 @Table(name="USER")
 @Getter
 @Setter
-public class User {
+public class User extends Customer{
     @Id
     @SequenceGenerator(name ="User" ,sequenceName = "USER_ID_SEQ")
     @GeneratedValue(generator = "User")
     private Long id;
 
-    @Column(name="NAME",length=30,unique=true,nullable = false)
-    private String NAME;
+
 
     @Column(name="USERNAME",length=30,unique=true,nullable = false)
     private String username;
@@ -29,7 +28,6 @@ public class User {
     public String toString() {
         return "User{"+
                 "id="+id+
-                ", NAME='"+NAME+'\''+
                 ", username='"+username+'\''+
                 ", bills="+bills+
                 '}';

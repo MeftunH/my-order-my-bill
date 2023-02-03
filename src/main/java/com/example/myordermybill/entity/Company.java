@@ -10,14 +10,11 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-public class Company {
+public class Company extends Customer{
     @Id
     @SequenceGenerator(name ="COMPANY" ,sequenceName = "COMPANY_ID_SEQ")
     @GeneratedValue(generator = "COMPANY")
     private Long id;
-
-    @Column(name="NAME",length=30,unique=true,nullable = false)
-    private String name;
 
     //One to Many to Bill
     @OneToMany(mappedBy="company")
@@ -27,7 +24,6 @@ public class Company {
     public String toString() {
         return "Company{"+
                 "id="+id+
-                ", name='"+name+'\''+
                 ", bills="+bills+
                 '}';
     }
