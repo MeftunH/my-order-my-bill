@@ -23,12 +23,6 @@ public class Bill {
     @Column(name="TOTAL_BILL",precision = 15, scale=2,nullable = false)
     private BigDecimal totalBill;
 
-    //Many to One to User
-    @ManyToOne
-    @JoinColumn(name="USER_ID",nullable = false)
-    @MapsId("USER_ID")
-    private User userId;
-
     @ManyToOne
     @JoinColumn(name="company_id", nullable=false)
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -41,10 +35,9 @@ public class Bill {
     @JsonIgnore
     private User user;
 
-    public Bill(Long id, BigDecimal totalBill, User userId, Company company, User user) {
+    public Bill(Long id, BigDecimal totalBill, Company company, User user) {
         this.id=id;
         this.totalBill=totalBill;
-        this.userId=userId;
         this.company=company;
         this.user=user;
     }
@@ -58,7 +51,6 @@ public class Bill {
         return "Bill{"+
                 "id="+id+
                 ", totalBill="+totalBill+
-                ", userId="+userId+
                 ", company="+company+
                 ", user="+user+
                 '}';
