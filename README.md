@@ -18,10 +18,11 @@ Listing operations should be done using stream.
 9. [✅] List customers with the letter 'C' in them
    ![image](https://user-images.githubusercontent.com/48466124/216774740-880f9e03-848c-42c7-bde2-8b9174d5e11e.png)
 
-10. [x] List the total amount of invoices for customers who signed up in June
+10. [✅] List the total amount of invoices for customers who signed up in June
     ![image](https://user-images.githubusercontent.com/48466124/216778967-8d3eb8b6-0e4b-4cc2-8ae3-c12a66177577.png)
-
-11. [x] List all invoices in the system
+11. [✅] List all invoices in the system
+    ![image](https://user-images.githubusercontent.com/48466124/216783486-0cf700b1-5bc1-412a-adce-319c700008ab.png)
+    ![image](https://user-images.githubusercontent.com/48466124/216783517-f854097d-86d6-4267-b7fa-2151ecf8f52c.png)
 12. [x] List invoices over 1500TL in the system
 13. [x] Calculate the average of invoices over 1500TL in the system
 14. [x] List the names of customers with invoices under 500TL in the system

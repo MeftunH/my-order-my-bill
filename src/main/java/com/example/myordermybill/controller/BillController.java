@@ -50,14 +50,34 @@ public class BillController {
     }
     @GetMapping("/totalAmountOfInvoicesInJune")
     public ResponseEntity<BigDecimal> totalAmountOfInvoicesInJune() {
-
         List<User> users = userRepository.findAll();
-
         List<Bill> billList =users.stream().flatMap(c -> billRepository.findBillsByUser(c).stream())
                 .toList();
-
         BigDecimal totalBillAmount= billList.stream().map(x->x.getTotalBill()).reduce(BigDecimal.ZERO.stripTrailingZeros(), BigDecimal::add);
 
         return new ResponseEntity<>(totalBillAmount, HttpStatus.OK);
+    }
+
+    @GetMapping("/listInvoicesOverTheAmount")
+    public ResponseEntity<List<Bill>> listInvoicesOverTheAmount() {
+        List<User> users = userRepository.findAll();
+        List<Bill> billList =users.stream().flatMap(c -> billRepository.findBillsByUser(c).stream())
+                .toList();
+        List<Bill> billListOverAmount = billList.stream().filter(i -> i.getTotalBill().compareTo(BigDecimal.valueOf(1500)) > 0)
+                .toList();
+
+        return new ResponseEntity<>(billListOverAmount, HttpStatus.OK);
+    }
+    @GetMapping("/averageOfInvoicesOverTheAmount")
+    public ResponseEntity<BigDecimal> averageOfInvoicesOverTheAmount() {
+        List<User> users = userRepository.findAll();
+        List<Bill> billList =users.stream().flatMap(c -> billRepository.findBillsByUser(c).stream())
+                .toList();
+        List<Bill> billListOverAmount = billList.stream().filter(i -> i.getTotalBill().compareTo(BigDecimal.valueOf(1500)) > 0)
+                .toList();
+        BigDecimal totalBillAmount= billListOverAmount.stream().map(x->x.getTotalBill()).reduce(BigDecimal.ZERO.stripTrailingZeros(), BigDecimal::add);
+        BigDecimal averageBillAmount=totalBillAmount.divide(BigDecimal.valueOf(billListOverAmount.size()));
+
+        return new ResponseEntity<>(averageBillAmount, HttpStatus.OK);
     }
 }
