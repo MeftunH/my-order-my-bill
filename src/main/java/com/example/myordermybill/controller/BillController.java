@@ -80,4 +80,16 @@ public class BillController {
 
         return new ResponseEntity<>(averageBillAmount, HttpStatus.OK);
     }
+    //List the names of customers with invoices under 500TL in the system
+    @GetMapping("/listCustomersWithInvoicesUnderAmount")
+    public ResponseEntity<List<User>> listCustomersWithInvoicesUnderAmount() {
+        List<User> users = userRepository.findAll();
+        List<Bill> billList =users.stream().flatMap(c -> billRepository.findBillsByUser(c).stream())
+                .toList();
+        List<Bill> billListUnderAmount = billList.stream().filter(i -> i.getTotalBill().compareTo(BigDecimal.valueOf(500)) < 0)
+                .toList();
+        List<User> userListUnderAmount = billListUnderAmount.stream().map(x->x.getUser()).collect(Collectors.toList());
+
+        return new ResponseEntity<>(userListUnderAmount, HttpStatus.OK);
+    }
 }
