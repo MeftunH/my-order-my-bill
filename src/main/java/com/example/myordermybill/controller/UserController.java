@@ -24,11 +24,11 @@ public class UserController {
     BillRepository billRepository;
 
     @GetMapping("/all")
-    public ResponseEntity<String> getAllUsers() {
+    public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userRepository.findAll();
-        String userString = users.stream().map(Object::toString).collect(Collectors.joining(","));
+        List<User> userList = users.stream().toList();
 
-        return new ResponseEntity<>(userString, HttpStatus.OK);
+        return new ResponseEntity<>(userList, HttpStatus.OK);
     }
 
     @PostMapping("/create")
@@ -40,23 +40,11 @@ public class UserController {
     }
 
     @GetMapping("/listWithLetterThem")
-    public ResponseEntity<String> getUsersWithLetterThem() {
+    public ResponseEntity<List<User>> getUsersWithLetterThem() {
         List<User> users = userRepository.findAll();
-        String userString = users.stream().filter(i -> i.getUsername().toUpperCase().contains("C"))
-                .map(Object::toString).collect((Collectors.joining(",")));
+        List<User> userList = users.stream().filter(i -> i.getUsername().toUpperCase().contains("C"))
+                .toList();
 
-        return new ResponseEntity<>(userString, HttpStatus.OK);
-    }
-
-    @GetMapping("/totalAmountOfInvoicesInJune")
-    public ResponseEntity<String> totalAmountOfInvoicesInJune() {
-
-        List<User> users = userRepository.getUsersCreatedInJune();
-
-        String userString =users.stream().flatMap(c -> billRepository.findBillsByUser(c).stream())
-                .map(Object::toString)
-                .collect(Collectors.toList()).toString();
-
-        return new ResponseEntity<>(userString, HttpStatus.OK);
+        return new ResponseEntity<>(userList, HttpStatus.OK);
     }
 }
