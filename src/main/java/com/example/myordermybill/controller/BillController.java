@@ -7,9 +7,16 @@ import com.example.myordermybill.repository.BillRepository;
 import com.example.myordermybill.repository.CompanyRepository;
 import com.example.myordermybill.repository.UserRepository;
 import com.example.myordermybill.request.BillSave;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -32,11 +39,25 @@ public class BillController {
         Optional<Company> company = companyRepository.findById(billSave.getCompanyId());
         Optional<User> user = userRepository.findById(billSave.getUserId());
         Bill _bill = new Bill();
+        Date date = Calendar.getInstance().getTime();
         if (company.isPresent() && user.isPresent()) {
             _bill.setCompany(company.get());
             _bill.setUser(user.get());
             _bill.setTotalBill(billSave.getTotal());
+            _bill.setCreatedDate(date);
             billRepository.save(_bill);
         }
+    }
+    @GetMapping("/totalAmountOfInvoicesInJune")
+    public ResponseEntity<BigDecimal> totalAmountOfInvoicesInJune() {
+
+        List<User> users = userRepository.findAll();
+
+        List<Bill> billList =users.stream().flatMap(c -> billRepository.findBillsByUser(c).stream())
+                .toList();
+
+        BigDecimal totalBillAmount= billList.stream().map(x->x.getTotalBill()).reduce(BigDecimal.ZERO.stripTrailingZeros(), BigDecimal::add);
+
+        return new ResponseEntity<>(totalBillAmount, HttpStatus.OK);
     }
 }
