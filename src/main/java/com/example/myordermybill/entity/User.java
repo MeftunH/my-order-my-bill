@@ -3,6 +3,7 @@ package com.example.myordermybill.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Set;
 
@@ -15,14 +16,18 @@ public class User{
         this.username=username;
         this.name = name;
     }
-    @Column(name="NAME",length=30,unique=true,nullable = false)
+
+    public User() {
+    }
+
+    @Column(name="NAME",length=30,nullable = false)
     private String name;
     @Id
     @SequenceGenerator(name ="User" ,sequenceName = "USER_ID_SEQ")
     @GeneratedValue(generator = "User")
     private Long id;
 
-    @Column(name="USERNAME",length=30,unique=true,nullable = false)
+    @Column(name="USERNAME",length=30,nullable = false)
     private String username;
 
     @OneToMany(mappedBy="user")
@@ -36,4 +41,7 @@ public class User{
                 ", bills="+bills+
                 '}';
     }
+    @CreatedDate
+    @Column(name="CREATED_DATE")
+    private java.util.Date createdDate;
 }
