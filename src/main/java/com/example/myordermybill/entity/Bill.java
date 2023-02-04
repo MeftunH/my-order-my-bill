@@ -49,6 +49,10 @@ public class Bill {
         this.user=user;
     }
 
+    public Bill() {
+
+    }
+
     @Override
     public String toString() {
         return "Bill{"+
