@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.math.BigDecimal;
 import java.util.Set;
@@ -34,6 +35,10 @@ public class Bill {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private User user;
+
+    @CreatedDate
+    @Column(name="CREATED_DATE")
+    private java.util.Date createdDate;
 
     public Bill(Long id, BigDecimal totalBill, Company company, User user) {
         this.id=id;
