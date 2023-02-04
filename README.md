@@ -1,23 +1,31 @@
 # About of project
 An application where a customer can create orders, save and view their invoices.
 ## Requirements
-1. The concepts of final, static, overload, override, constructor, inheritance, polymorphism, encapsulation, List, Set, Map should be used.
-2. You can add to the system.
-3. It is enough to work on the main method.
-4. Try to write in accordance with SOLID principles.
-5. Homework Steps
-6. Listing operations should be done using stream.
-7. Create a Maven project.
-8. Run the maven commands and add the output
-9. List all customers
-10. Able to create new customers
-11. List customers with the letter 'C' in them
-12. List the total amount of invoices for customers who signed up in June
-13. List all invoices in the system
-14. List invoices over 1500TL in the system
-15. Calculate the average of invoices over 1500TL in the system
-16. List the names of customers with invoices under 500TL in the system
-17. Write the code that lists the companies in which the average invoices for the month of June are below 750.
+1. [✅] The concepts of final, static, overload, override, constructor, inheritance, polymorphism, encapsulation, List, Set, Map should be used.
+2. [✅] You can add to the system.
+3. [✅] It is enough to work on the main method.
+4. [✅] Try to write in accordance with SOLID principles.
+ Homework Steps
+Listing operations should be done using stream.
+5. [✅] Create a Maven project.
+6. [✅] Run the maven commands and add the output
+   ![image](https://user-images.githubusercontent.com/48466124/216761087-fd3360b4-8a70-49be-a087-0d66ab306e29.png)
+7. [✅] List all customers
+   ![image](https://user-images.githubusercontent.com/48466124/216721884-c7bbdf30-87bf-4415-8a6e-ca6bf71d1243.png)
+
+8. [✅] Able to create new customers
+    ![image](https://user-images.githubusercontent.com/48466124/216720786-778c3933-52df-4b45-9f60-49c9ae6f00d3.png)
+9. [✅] List customers with the letter 'C' in them
+   ![image](https://user-images.githubusercontent.com/48466124/216774740-880f9e03-848c-42c7-bde2-8b9174d5e11e.png)
+
+10. [x] List the total amount of invoices for customers who signed up in June
+    ![image](https://user-images.githubusercontent.com/48466124/216778967-8d3eb8b6-0e4b-4cc2-8ae3-c12a66177577.png)
+
+11. [x] List all invoices in the system
+12. [x] List invoices over 1500TL in the system
+13. [x] Calculate the average of invoices over 1500TL in the system
+14. [x] List the names of customers with invoices under 500TL in the system
+15. [x] Write the code that lists the companies in which the average invoices for the month of June are below 750.
 
 
 ### Reference Documentation
