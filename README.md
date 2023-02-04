@@ -41,7 +41,7 @@ Listing operations should be done using stream.
     ![image](https://user-images.githubusercontent.com/48466124/216785432-5085d3e7-98a7-4af0-ba31-a5a357ddfb15.png)
     ![image](https://user-images.githubusercontent.com/48466124/216785450-93285f8c-356f-4f5f-86e5-0e517a2d10b5.png)
 
-15.[x] Write the code that lists the companies in which the average invoices for the month of June are below 750.
+15. [✅] Write the code that lists the companies in which the average invoices for the month of June are below 750.
    ![image](https://user-images.githubusercontent.com/48466124/216785935-ad08a6a2-39c5-4526-ad5b-405240b53b23.png)
 
 
