@@ -33,7 +33,9 @@ public class UserController {
 
     @PostMapping("/create")
     public ResponseEntity<User> createUser(@RequestBody UserSave userSave) {
-        User _user = userRepository.save(new User(userSave.getUsername(),userSave.getName()));
+        //create date now
+        Date date = Calendar.getInstance().getTime();
+        User _user = userRepository.save(new User(userSave.getUsername(),userSave.getName(),date));
         return new ResponseEntity<>(_user, HttpStatus.CREATED);
     }
 

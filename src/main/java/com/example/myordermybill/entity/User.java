@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -12,9 +13,10 @@ import java.util.Set;
 @Getter
 @Setter
 public class User{
-    public User(String name, String username) {
+    public User(String name, String username, Date date) {
         this.username=username;
         this.name = name;
+        this.createdDate=date;
     }
 
     public User() {
@@ -33,6 +35,9 @@ public class User{
     @OneToMany(mappedBy="user")
     private Set<Bill> bills;
 
+    @CreatedDate
+    @Column(name="CREATED_DATE")
+    private java.util.Date createdDate;
     @Override
     public String toString() {
         return "User{"+
@@ -41,7 +46,5 @@ public class User{
                 ", bills="+bills+
                 '}';
     }
-    @CreatedDate
-    @Column(name="CREATED_DATE")
-    private java.util.Date createdDate;
+
 }
