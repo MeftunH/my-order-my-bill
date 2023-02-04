@@ -1,5 +1,6 @@
 package com.example.myordermybill.entity;
 
+import com.example.myordermybill.enums.Sector;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +25,9 @@ public class Company {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "company_id")
     private Set<Bill> bills = new HashSet<>();
+
+    @Enumerated(EnumType.STRING)
+    private Sector sector;
 
     @Override
     public String toString() {
